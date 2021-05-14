@@ -38,8 +38,8 @@ jobs:
       - name: Retrieve course data from S3
         run: aws s3 sync s3://test-course-bucket/data/ $BUILD_DIR/data --endpoint-url ${{ secrets.AWS_S3_ENDPOINT }}
 
-#      - name: Retrieve bookdown cache from S3
-#        run: aws s3 sync s3://test-course-bucket/_bookdown_files/ $BUILD_DIR/_bookdown_files --endpoint-url ${{ secrets.AWS_S3_ENDPOINT }}
+      - name: Retrieve bookdown cache from S3
+        run: aws s3 sync s3://test-course-bucket/_bookdown_files/ $BUILD_DIR/_bookdown_files --endpoint-url ${{ secrets.AWS_S3_ENDPOINT }}
           
       - name: Render bookdown Rmd files for site generation
         working-directory: ${{ env.BUILD_DIR }}
